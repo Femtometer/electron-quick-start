@@ -2,16 +2,22 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Tension's Zone</title>
   </head>
-  <body>
+  <body align=middle>
     <h1>Hello World!</h1>
     <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-  </body>
+    <progress value="22" max="100">
+    </progress>
 
+    <button onclick="end_main">Exit</button>
+    <p align=middle style="color:grey">
+    基于 node <script>document.write(process.versions.node)</script>,
+    Chromium <script>document.write(process.versions.chrome)</script>,
+    Electron <script>document.write(process.versions.electron)</script>.
+    </p>
+    <p align=middle style="color:grey">Designed by Tension, &copy; 2016</p>
+  </body>
   <script>
     // You can also require other files to run in this process
     require('./renderer.js')
