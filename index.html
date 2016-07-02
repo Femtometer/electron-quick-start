@@ -5,12 +5,33 @@
     <title>Tension's Zone</title>
   </head>
   <body align=middle>
+    <script>
+    function end_main(){
+      console.log('Click_button')
+      document.write('Fun Called')
+    }
+    </script>
+    <script>
+      const {ipcRenderer} = require('electron');
+      const updateOnlineStatus = () => {
+        ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline');
+      };
+      window.addEventListener('online',  updateOnlineStatus);
+      window.addEventListener('offline',  updateOnlineStatus);
+      updateOnlineStatus();
+    </script>
     <h1>Hello World!</h1>
     <!-- All of the Node.js APIs are available in this renderer process. -->
     <progress value="22" max="100">
     </progress>
-
-    <button onclick="end_main">Exit</button>
+    <button id="exit_btn">Exit</button>
+    <script>
+      var btn = document.getElementById("exit_btn");
+      btn.addEventListener("click", function(){
+          console.log("I was clicked.");
+          ipcRenderer.send("show-dialog", { message: "The button was clicked" });
+      });
+    </script>
     <p align=middle style="color:grey">
     基于 node <script>document.write(process.versions.node)</script>,
     Chromium <script>document.write(process.versions.chrome)</script>,
